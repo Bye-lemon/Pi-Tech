@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>慕课问道</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/user.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+</head>
+<body>
+<!-- Header 顶部Logo栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand text-primary" href="#">
+            <i class="fa d-line fa-lg fa-circle-o">
+                <b>慕课问道</b>
+            </i>
+        </a>
+        <!-- Collapse 入口 -->
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#user">
+            <p class="navbar-brand mb-0 text-light">
+                Log Here
+            </p>
+        </button>
+        <!-- Collapse 内容 -->
+        <div class="collapse navbar-collapse text-secondary" id="user">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-muted text-right" data-toggle="modal" href="#signinmodal">登陆</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted text-right" data-toggle="modal" href="#signupmodal">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 登录模态框的实现 -->
+<div class="modal fade" id="signinmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>登录</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label>用户名：</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="remenberme" value="on">
+                                    <label class="form-check-label" for="remenberme">记住登陆状态</label>
+                                </div>
+                                <hr>
+                                <button type="submit" class="btn btn-secondary my-2">登录</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框的实现 -->
+<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>注册</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label>用户名：</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username"
+                                               placeholder="Like： Edward Fish">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱：</label>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email"
+                                               placeholder="Like： Edward_Fish@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd"
+                                               placeholder="Password Here" id="pwd">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>确认密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd_check"
+                                               placeholder="Password Again" id="pwd_check" onkeyup="validate()">
+                                    </div>
+                                </div>
+                                <p class="text-danger form-text" id="error"></p>
+                                <hr>
+                                <button type="submit" class="btn btn-secondary my-2" id="submit">注册</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Navigator 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <!-- Collapse 入口 -->
+        <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse"
+                data-target="#navigator">
+            <p class="navbar-brand mb-0 text-light">
+                <i class="fa d-inline fa-lg fa-stop-circle"></i>
+                Navigator
+            </p>
+        </button>
+        <!-- Collapse 内容 -->
+        <div class="collapse navbar-collapse text-secondary" id="navigator">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html">在线课程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teachers.html">师资队伍</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certifications.html">学位证书</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="meetings.html">技术会议</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">关于我们</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 搜索框的实现 -->
+        <form class="form-inline my-2 my-lg-0" method="get" action="result.html">
+            <input class="form-control mr-sm-2" type="text" name="key" id="search" placeholder="键入搜索内容">
+            <button class="btn my-2 my-sm-0 btn-outline-info bg-dark" type="submit" id="submitbutton">
+                搜索
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- Navigator End -->
+<!-- Body 网页主体 -->
+
+<div class="bg-dark">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="carousel slide" data-ride="carousel" id="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active"><img class="d-block img-fluid w-100"
+                                                               src="img/teacher/neonbrand-509131-unsplash.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0">Teacher watching the computer</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item"><img class="d-block img-fluid w-100"
+                                                        src="img/teacher/the-climate-reality-project-349094-unsplash.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0">Students taking notes</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item"><img class="d-block img-fluid w-100"
+                                                        src="img/teacher/tra-nguyen-459276-unsplash.jpg">
+                            <div class="carousel-caption">
+                                <h5 class="m-0">Teacher writing on the blackboard</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span
+                            class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a
+                        class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span
+                        class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center"
+     style="background-image: url(img/teacher/tim-wright-506562-unsplash.jpg); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-12">
+                <h1 class="mb-3">明星讲师</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/Lemon.jpg" width="150" alt="Card image cap">
+                <h4><b>Lemon</b></h4>
+                <p class="mb-0">CEO and founder</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/Janaldo.jpg" width="150" alt="Card image cap">
+                <h4><b>Janaldo</b></h4>
+                <p class="mb-0">Co-founder</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/Sultimer.JPG" width="150">
+                <h4><b>Sultimer</b></h4>
+                <p class="mb-0">Evangelist</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/fish.jpg" width="150">
+                <h4><b>Fish</b></h4>
+                <p class="mb-0">CTO</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/messi.jpg" width="150" alt="Card image cap">
+                <h4><b>Messi</b></h4>
+                <p class="mb-0">Co-founder</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/Xiaoxin.jpg" width="150">
+                <h4><b>Xiaoxin</b></h4>
+                <p class="mb-0">CFO</p>
+            </div>
+            <div class="col-lg-3 col-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                 src="img/ours/yaoming.jpg" width="150">
+                <h4><b>Yaoming</b></h4>
+                <p class="mb-0">CTO</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-white"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(img/teacher/sebas-ribas-310260-unsplash.jpg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="text-light mb-4" contenteditable="true">加入我们</h1>
+            </div>
+        </div>
+        <div class="row text-dark">
+            <div class="col-lg-4 p-3">
+                <div class="card text-center">
+                    <div class="card-body p-4">
+                        <h3 class="text-primary">One</h3>
+                        <hr>
+                        <p class="my-3 lead">
+                            你必须有一颗热爱教育的虔诚的信念，愿意追随崇高的Edward Fish爵士。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card text-center">
+                    <div class="card-body p-4">
+                        <h3 class="text-primary">Two</h3>
+                        <hr>
+                        <p class="my-3 lead">
+                            你必须有一手超凡脱俗的独家的绝技，可堪比拟优秀的Sultimer先生。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card text-center">
+                    <div class="card-body p-4">
+                        <h3 class="text-primary">Three</h3>
+                        <hr>
+                        <p class="my-3 lead">
+                            你必须有一腔指点江山的热血的情怀，就像Jonaldo在雕像前面的呐喊。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"><a class="btn btn-primary" href="empty_pages.html">提交申请</a></div>
+        </div>
+    </div>
+</div>
+<div class="py-5"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(img/teacher/jose-alejandro-cuffia-799483-unsplash.jpg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="p-3 col-md-8">
+                <div class="blockquote mb-0">
+                    <p class="">
+                        "石室诗士施氏，嗜狮，誓食十狮。施氏时时适市视狮。十时，适十狮适市。是时，适施氏适市。施氏视是十狮，恃矢势，使是十狮逝世。氏拾是十狮尸，适石室。石室湿，氏使侍拭石室。石室拭，氏始试食是十狮尸。食时，始识是十狮尸，实十石狮尸。试释是事。"</p>
+                    <div class="blockquote-footer">
+                        <b>R.L.Lemon</b>, CEO at FC Inc.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto p-3"><img class="img-fluid d-block rounded-circle" src="img/ours/Lemon.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Body End -->
+<!-- Footer 网页底部 -->
+<div class="py-3 bg-dark text-muted">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6 p-3">
+                <h5><b>我们的团队</b></h5>
+                <ul class="list-unstyled">
+                    <li><a href="courses.html">在线课程</a></li>
+                    <li><a href="teachers.html">师资队伍</a></li>
+                    <li><a href="certifications.html">学位证书</a></li>
+                    <li><a href="meetings.html">技术会议</a></li>
+                </ul>
+            </div>
+            <div class="p-3 col-lg-3 col-6">
+                <h5><b>联系我们</b></h5>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+86 - 1234567890
+                </p>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>funnycompany.com
+                </p>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>365 Park Street, DL
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 p-3">
+                <h5><b>我们的理念</b></h5>
+                <p class="mb-0">
+                    Funny Company
+                    由创始人Edward
+                    Fish爵士于公元1998年创立，致力于将滑稽文化推广到整个世界。我们的教育模式寓教于乐，课程体系覆盖多领域、多年龄段。只有你想不到的，没有你能想到的。我们坚信，努力不一定会成功，但是躺在床上一定很舒服。世上无难事，只要肯放弃。只要我们E得足够快乐，世人的问号就追不上我！
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 mt-2">© 1998 - 2018 Funny Company. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+<!-- Javascript 脚本 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    // Header 模态框的显示
+    $('signinmodal').modal('show');
+    $('signupmodal').modal('show');
+
+    // 注册模态框中密码是否一致的判断
+    function validate() {
+        var pw1 = document.getElementById("pwd").value;
+        var pw2 = document.getElementById("pwd_check").value;
+        if (pw1 !== pw2) {
+            document.getElementById("error").innerHTML = "两次密码输入不一致";
+            document.getElementById("submit").disabled = true;
+        }
+        else {
+            document.getElementById("error").innerHTML = "";
+            document.getElementById("submit").disabled = false;
+        }
+    }
+
+    // 搜索URL中文乱码的解决
+    $("submitbutton").click(function () {
+        var searchText = jQuery.trim($("search").val());
+        var searchUrl = encodeURI("result.html?key=" + searchText);   //使用encodeURI编码
+        window.location.href = searchUrl;
+    });
+</script>
+<!-- Javascript End -->
+</body>
+</html>

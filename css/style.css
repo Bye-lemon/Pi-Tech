@@ -1,0 +1,93 @@
+body,section,div,p,h1,h2,h3,h4,h5,h6 {
+    margin:0;
+    padding:0;
+}
+body{
+    font-size: 100%;
+    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    font-smoothing:antialiased;
+    -webkit-font-smoothing: antialiased;
+    color:#333;
+}
+#wrapper{
+    position: relative;
+    width:100vm;
+    min-height: 50vw;
+    overflow:hidden;
+}
+.layer{
+    position: absolute;
+    width:100vw;
+    min-height: 50vw;
+    overflow: hidden;
+}
+.layer .content_wrapper{
+    width:100vw;
+    min-height:50vw;
+    position:absolute;
+}
+.layer .content_body{
+    width:25%;
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+    text-align: center;
+}
+.layer .content_body p{
+    text-indent:2rem;
+    text-align: left;
+}
+.layer img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.bottom{
+    background: #000;
+    z-index: 1;
+}
+.bottom .content_body{
+    right:10%;
+
+}
+.bottom h2{
+    color:#f62368;
+}
+.bottom p{
+    color:#eee;
+}
+.top{
+    background: #eee;
+    color:#222;
+    width:50vw;
+    z-index: 2;
+}
+.top .content_body{
+    left:10%;
+}
+.handle{
+    position:absolute;
+    left:50%;
+    width:5px;
+    top:0;
+    background: #f62368;
+    height: 100%;
+    z-index: 3;
+}
+.skewed .handle{
+    top:50%;
+    transform:rotate(30deg) translateY(-50%);
+    height:200%;
+    transform-origin: top;
+}
+.skewed .top{
+    transform:skew(-30deg);
+    margin-left:-1000px;
+    width:calc(50vw + 1000px)
+}
+.skewed .top .content_wrapper{
+    transform:skew(30deg);
+    margin-left:1000px;
+}

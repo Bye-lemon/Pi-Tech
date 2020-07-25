@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小派创客科技有限公司</title>
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+    <link rel="bookmark" href="img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/user.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+</head>
+<body>
+<!-- Header 顶部Logo栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand text-primary" href="#">
+            <i class="fa d-line fa-lg fa-circle-o">
+                <b>大连小派创客科技有限公司</b>
+            </i>
+        </a>
+        <!-- Collapse 入口 -->
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#user">
+            <p class="navbar-brand mb-0 text-light">
+                Log Here
+            </p>
+        </button>
+        <!-- Collapse 内容 -->
+        <div class="collapse navbar-collapse text-secondary" id="user">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-muted text-right" data-toggle="modal" href="#signinmodal">登陆</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted text-right" data-toggle="modal" href="#signupmodal">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 登录模态框的实现 -->
+<div class="modal fade" id="signinmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>登录</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label>用户名：</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="remenberme" value="on">
+                                    <label class="form-check-label" for="remenberme">记住登陆状态</label>
+                                </div>
+                                <hr>
+                                <button type="submit" class="btn btn-secondary my-2">登录</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框的实现 -->
+<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>注册</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label>用户名：</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="username"
+                                               placeholder="Like： Edward Fish">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱：</label>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email"
+                                               placeholder="Like： Edward_Fish@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd"
+                                               placeholder="Password Here" id="pwd">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>确认密码：</label>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pwd_check"
+                                               placeholder="Password Again" id="pwd_check" onkeyup="validate()">
+                                    </div>
+                                </div>
+                                <p class="text-danger form-text" id="error"></p>
+                                <hr>
+                                <button type="submit" class="btn btn-secondary my-2" id="submit">注册</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Navigator 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <!-- Collapse 入口 -->
+        <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse"
+                data-target="#navigator">
+            <p class="navbar-brand mb-0 text-light">
+                <i class="fa d-inline fa-lg fa-stop-circle"></i>
+                Navigator
+            </p>
+        </button>
+        <!-- Collapse 内容 -->
+        <div class="collapse navbar-collapse text-secondary" id="navigator">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html">产品列表</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teachers.html">研发团队</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certifications.html">核心技术</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="meetings.html">服务支持</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">关于我们</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 搜索框的实现 -->
+        <form class="form-inline my-2 my-lg-0" method="get" action="result.html">
+            <input class="form-control mr-sm-2" type="text" name="key" id="search" placeholder="键入搜索内容">
+            <button class="btn my-2 my-sm-0 btn-outline-info bg-dark" type="submit" id="submitbutton">
+                搜索
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- Navigator End -->
+<!-- Body 网页主体 -->
+<div class="py-5 text-white"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(img/index/chips.jpg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 p-0">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <video class="embed-responsive-item" type="video/mp4" controls="controls"
+                           src="video/rov.mp4"> Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
+            <div class="p-5 col-lg-7 d-flex flex-column justify-content-center">
+                <h3 class="display-4 mb-3">Dalian Pi Tech. Co. Ltd.</h3>
+                <br>
+                <p class="lead mb-0">万中无一的研发团队</p>
+                <p class="lead mb-0">精益求精的ROV开发</p>
+                <p class="lead mb-0">随心所欲的机器人定制</p>
+                <br>
+                <p class="lead mb-0">我们是小派创客，乘风破浪、一路领航！</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5"
+     style="background-image: url(img/index/sea-long.jpg); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="p-3 col-md-8">
+                <div class="blockquote mb-0">
+                    <p class="text-light">
+                        "我一直相信,知识才是改变世界的唯一手段.所以,亲爱的朋友们,让我们一起挥手呐喊:我爱读书,我爱学习,学习使我快乐.不学习,毋宁死.如果要在这句话后面加上一个期限,那么我希望它是一万年."</p>
+                    <div class="blockquote-footer text-light">创始人&CEO 张津榕</div>
+                </div>
+            </div>
+            <div class="col-md-2 mx-auto p-3"><img class="img-fluid d-block rounded-circle"
+                                                   src="img/ours/zhangjinrong.jpg"></div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-white"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(img/index/chips.jpg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-12 text-center text-white">
+                <h1 class="mb-3"><b>主营产品</b></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="p-5 col-lg-8 d-flex flex-column justify-content-center">
+                <h3 class="display-4 mb-3">深色蔚蓝水下检测机器人</h3>
+                <br>
+                <p class="lead mb-0">深色蔚蓝水下检测机器人是小派创客自主研发的海工混凝土腐蚀及裂缝情况检测机器人，产品线重量在80~120kg，其自带的水下图像增强系统使其适合在复杂海底环境进行检测，搭载能力强，受流、浪影响小。</p>
+            </div>
+<div class="p-5 col-lg-4 d-flex flex-column justify-content-center">
+          <img class="img-fluid img-thumbnail p-0" src="img/index/robot.jpg" alt="Card image" > </div>
+        </div>
+    </div>
+</div>
+<div class="py-5"
+     style="background-image: url(img/index/sea-long.jpg); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 align="center" class="text-dark"><b>核心技术</b></h1>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card"><img class="card-img-top" src="img/index/mobilenet-ssd.PNG" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">自研水下混凝土检测系统</h4>
+                        <p class="card-text">基于MobileNet-SSD目标检测方法的水下混凝土检测系统，具有轻量、实时、高可用等诸多优点。</p>
+                        <a href="#" class="btn btn-primary disabled">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card"><img class="card-img-top" src="img/index/jixiebi.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">六自由度多功能机械臂</h4>
+                        <p class="card-text">六自由度机械臂可在高精度灵活运动的同时，运用其前端搭载的机械手进行复杂作业，适合应对检测过程中发生的突发情况。</p>
+                        <a href="#" class="btn btn-primary disabled">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card"><img class="card-img-top" src="img/index/tuijinqi.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">自研PI-02型水下推进器</h4>
+                        <p class="card-text">
+                            小派创客拥有自主研发的水下推进器，可在60M深海域内提供大于100N的推进力，可与市面上各种ROV、AUV水下平台兼容。</p> <a href="#"
+                                                                                                class="btn btn-primary disabled">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center text-white"
+     style="    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(img/index/sea.jpg);    background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-md-12">
+                <h1 class="mb-3"><b>研发骨干</b></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 p-4">
+                <a href="https://bye-lemon.github.io">
+                    <img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                         src="img/ours/qinyan.jpg" alt="Card image cap" width="200">
+                </a>
+                <h4><b>秦炎</b></h4>
+                <p class="mb-0">大连理工大学机械工程专业17级博士研究生,发表SCI论文2篇,申请国家发明专利8项。</p>
+            </div>
+            <div class="col-lg-4 col-md-6 p-4">
+                <a href="https://janaldochen.github.io">
+                    <img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                         src="img/ours/caofengkui.jpg" alt="Card image cap" width="200">
+                </a>
+                <h4><b>曹风魁</b></h4>
+                <p class="mb-0">大连理工大学控制理论与控制工程专业15级博士生,发表SCI多篇,参与863课题专项。</p>
+            </div>
+            <div class="col-lg-4 p-4">
+                <a href="https://sultimer.github.io">
+                    <img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                         src="img/ours/xushuliang.jpg" width="200">
+                </a>
+                <h4><b>徐树良</b></h4>
+                <p class="mb-0">大连理工大学计算机应用技术博士生,发表SCI论文11篇,参与国家自然科学基金4项。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Body End -->
+<!-- Footer 网页底部 -->
+<div class="py-3 bg-dark text-muted">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-6 p-3">
+                <h5><b>我们的团队</b></h5>
+                <ul class="list-unstyled">
+                    <li><a href="courses.html">产品列表</a></li>
+                    <li><a href="teachers.html">研发团队</a></li>
+                    <li><a href="certifications.html">核心技术</a></li>
+                    <li><a href="meetings.html">服务支持</a></li>
+                </ul>
+            </div>
+            <div class="p-3 col-lg-3 col-6">
+                <h5><b>联系我们</b></h5>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 text-muted fa-phone"></i>+86 - 15272565639
+                </p>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>648715162@qq.com
+                </p>
+                <p class="text-muted">
+                    <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>大连高新技术产业园区希贤街29号的弘泰大厦B座306-2
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 p-3">
+                <h5><b>我们的理念</b></h5>
+                <p class="mb-0">
+                    大连小派创客科技有限公司由创始人张津榕与2019年成立,致力于将水下机器人推向更加广袤的蓝海。我们的团队拥有大连理工大学三代师生的多年技术沉淀，拥有多位博士的全力技术支持，所研发的水下机器人性能稳定、功能包含众多领域。我们坚信，小派创客会在水下机器人的领域乘风破浪、一路领航！
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="mb-0 mt-2">© 2019 - 2020 Dalian Pi Tech. Co. Ltd. All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+<!-- Javascript 脚本 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    // Header 模态框的显示
+    $('signinmodal').modal('show');
+    $('signupmodal').modal('show');
+
+    // 注册模态框中密码是否一致的判断
+    function validate() {
+        var pw1 = document.getElementById("pwd").value;
+        var pw2 = document.getElementById("pwd_check").value;
+        if (pw1 !== pw2) {
+            document.getElementById("error").innerHTML = "两次密码输入不一致";
+            document.getElementById("submit").disabled = true;
+        } else {
+            document.getElementById("error").innerHTML = "";
+            document.getElementById("submit").disabled = false;
+        }
+    }
+
+    // 搜索URL中文乱码的解决
+    $("submitbutton").click(function () {
+        var searchText = jQuery.trim($("search").val());
+        var searchUrl = encodeURI("result.html?key=" + searchText);   //使用encodeURI编码
+        window.location.href = searchUrl;
+    });
+</script>
+<!-- Javascript End -->
+</body>
+</html>
